@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>最新消息</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+        .news-item a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">烏龍院</a>
+                <button class="navbar-toggler d-lg-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="collapsibleNavId">
+                    <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="index.html" aria-current="page">首頁</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">關於我們</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="news.html">最新消息</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="store.html">線上購物</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown"
+                                aria-haspopup="true" aria-expanded="false">來賓</a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownId">
+                                <a class="dropdown-item" href="cart.html">購物車</a>
+                                <a class="dropdown-item" href="logout.html">登出</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container py-5">
+            <h1 class="mb-4 h2">中華隊0比13遭日本在7局提前結束比賽 投手壓不住大谷翔平等一票好手、打者僅張育成1安打</h1>
+            <!-- 麵包屑 -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                    <li class="breadcrumb-item"><a href="news.html">最新消息</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">2026-03-06</li>
+                </ol>
+            </nav>
+            <!-- 新聞內容 -->
+            <div id="news-list">
+                <div class="row mb-3 news-item">
+                    <div class="col-12">
+                        <img class="img-fluid mb-2" src="upload/202603092123419263.jpg" alt="">
+                        <p class="h5">
+                            2026年世界棒球經典賽，中華隊首戰對上地主日本隊，以鄭浩均先發迎戰山本由伸。第2局中華隊投手群失控，日本隊在大谷翔平滿貫全壘打帶動下單局攻下10分，奠定勝基。最終日本以13比0在7局提前扣倒中華隊，中華隊吞下預賽二連敗。此役也創下中華隊經典賽單局最多失分紀錄，接下來將陸續對戰捷克與韓國力拚晉級。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            // 這裡可以放置 jQuery 相關的程式碼
+            $.ajax({
+                url: 'api/news.php', // 替換為你的 JSON 文件路徑
+                method: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    // 在這裡處理從 JSON 獲取的數據
+                    console.log(data);
+                    /* 抓到的 newsitem 資料格式如下：
+                    { "success": true, "data": [
+                      { "id": "1", "title": "中華隊0比13遭日本在7局提前結束比賽 投手壓不住大谷翔平等一票好手、打者僅張育成1安打", "date": "2026-03-06 21:05:41", "summary": "2026年世界棒球經典賽，中華隊首戰對上地主日本隊，以鄭浩均先發迎戰山本由伸。第2局中華隊投手群失控，日本隊在大谷翔平滿貫全壘打帶動下單局攻下10分，奠定勝基。最終日本以13比0在7局提前扣倒中華隊，中華隊吞下預賽二連敗。此役也創下中華隊經典賽單局最多失分紀錄，接下來將陸續對戰捷克與韓國力拚晉級。" }, 
+                      { "id": "109", "title": "88", "date": "2026-03-09 21:24:27", "summary": "888" }] }
+                    */
+                    // 例如，可以將數據動態添加到頁面上
+                    $str = '';
+                    data.data.forEach(function (newsItem) {
+                        // $str += `
+                        //         <div class="row mb-3 news-item">
+                        //             <div class="col-md-4">
+                        //                 <a href="news-detail.html?p=1"><img class="img-fluid" src="upload/${newsItem.img}"
+                        //                         alt=""></a>
+                        //             </div>
+                        //             <div class="col-md-8">
+                        //                 <a href="news-detail.html?p=1">
+                        //                     <h2 class="h3">${newsItem.title}</h2>
+                        //                     <p class="text-danger">發佈日期：${newsItem.date}</p>
+                        //                     <p class="h5">
+                        //                         ${newsItem.summary}
+                        //                     </p>
+                        //                 </a>
+                        //             </div>
+                        //         </div>
+                        //         `;
+                        $str += `
+                                <div class="col-md-4 news-item">
+                                    <a href="news-detail.html?p=1">
+                                        <div class="ratio ratio-16x9">
+                                            <img class="img-fluid" src="upload/${newsItem.img}" alt="">
+                                        </div>
+                                        <h2 class="h4 mt-2">${newsItem.title}</h2>
+                                        <p class="text-danger">發佈日期：${newsItem.date}</p>
+                                    </a>
+                                </div>
+                                `;
+                    });
+                    // $('#news-list-col').html($str);
+                },
+                error: function (xhr, status, error) {
+                    console.error('Error fetching news:', error);
+                }
+            })
+        });
+    </script>
+</body>
+
+</html>

@@ -11,7 +11,7 @@ try{
     // 設定連線編碼為 UTF-8
     mysqli_set_charset($conn, 'utf8');
     // 設定 SQL 查詢指令
-    $sql = "SELECT * FROM news";
+    $sql = "SELECT * FROM news ORDER BY created_at DESC";
     // 執行 SQL 查詢指令，並將結果存入 $table 變數中(二維陣列)
     $table = mysqli_query($conn, $sql);
 }
@@ -41,12 +41,12 @@ catch (Exception $e) {
         rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
         crossorigin="anonymous" />
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 
 <body>
     <header>
-        <!-- place navbar here -->
-        
+        <?php include_once('nav.php') ?>
     </header>
     <main>
         <div class="container py-5">
@@ -56,6 +56,7 @@ catch (Exception $e) {
                     <th>編號</th>
                     <th>新聞標題</th>
                     <th>焦點圖片</th>
+                    <th>日期</th>
                     <th>作者</th>
                     <th>次數</th>
                     <th>上架否</th>
@@ -69,10 +70,11 @@ catch (Exception $e) {
                 echo "<td>".$row['title']."</td>";
                 //
                 echo '<td><img src="../upload/'.$row['image'].'" style="height:50px" alt=""></td>';
+                echo '<td>'.$row['created_at'].'</td>';
                 echo "<td>".$row['author']."</td>";
                 echo "<td>".$row['views']."</td>";
                 echo "<td>".$row['is_publish']."</td>";
-                echo '<td><a href="#" class="btn btn-primary">編輯</a> <a href="news_del.php?p='.$row['news_id'].'" class="btn btn-danger" onclick="return confirm(\'你確定要刪除嗎？\')">刪除</a></td>';
+                echo '<td><a href="news_edit.php?p='.$row['news_id'].'" class="btn btn-primary">編輯</a> <a href="news_del.php?p='.$row['news_id'].'" class="btn btn-danger" onclick="return confirm(\'你確定要刪除嗎？\')">刪除</a></td>';
                 echo "</tr>";
             }
             ?>

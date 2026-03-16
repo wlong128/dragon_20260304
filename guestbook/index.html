@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>留言板</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+</head>
+
+<body class="bg-light">
+    <div class="container mt-5">
+        <h2 class="mb-4">留言板</h2>
+        <div class="card mb-4">
+            <div class="card-body">
+                <input type="hidden" id="id">
+                <div class="mb-3">
+                    <label>姓名</label>
+                    <input type="text" id="name" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label>留言</label>
+                    <textarea id="content" class="form-control"></textarea>
+                </div>
+
+                <button class="btn btn-primary" id="saveBtn">送出留言</button>
+            </div>
+        </div>
+        <h4>留言列表</h4>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>姓名</th>
+                    <th>內容</th>
+                    <th>時間</th>
+                    <th>操作</th>
+                </tr>
+            </thead>
+            <tbody id="messageList"></tbody>
+        </table>
+    </div>
+
+    <script>
+        const API = "api/messages.php";
+        function loadMessages() {
+            $.get(API, function (res) {
+                let html = "";
+                res.data.forEach(row => {
+                    html += `
+                        <tr>
+                        <td>${row.id}</td>
+                        <td>${row.name}</td>
+                        <td>${row.content}</td>
+                        <td>${row.created_at}</td>
+                        <td>
+                        <button class="btn btn-warning btn-sm" onclick="editMessage(${row.id},'${row.name}','${row.content}')">
+                            修改
+                        </button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteMessage(${row.id})">
+                            刪除
+                        </button>
+                        </td>
+                        </tr>
+                        `;
+                });
+                $("#messageList").html(html);
+            });
+        }
+
+        loadMessages();
+        $("#saveBtn").click(function () {
+            let id = $("#id").val();
+            let name = $("#name").val();
+            let content = $("#content").val();
+            let method = id ? "PUT" : "POST";
+            $.ajax({
+                url: API,
+                method: method,
+                contentType: "application/json",
+                data: JSON.stringify({
+                    id: id,
+                    name: name,
+                    content: content
+                }),
+                success: function () {
+                    $("#name").val("");
+                    $("#content").val("");
+                    $("#id").val("");
+                    loadMessages();
+                }
+            });
+        });
+        function editMessage(id, name, content) {
+            $("#id").val(id);
+            $("#name").val(name);
+            $("#content").val(content);
+        }
+
+        function deleteMessage(id) {
+            if (!confirm("確定刪除?")) return;
+            $.ajax({
+                url: API,
+                method: "DELETE",
+                contentType: "application/json",
+                data: JSON.stringify({ id: id }),
+                success: function () {
+                    loadMessages();
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

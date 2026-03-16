@@ -1,0 +1,38 @@
+body {
+    background-color: black;
+    height: 100vh;
+}
+
+header {
+    width: 200px;
+    background-color: black;
+    float: left;
+}
+
+main {
+    background-color: white;
+    margin-left: 200px;
+    min-height: 100vh;
+}
+
+.navbar-brand, .navbar-brand:hover {
+    color: white;
+    font-size: 28px;
+    font-weight: bold;
+    margin-left: 15px;
+}
+
+nav li a.nav-link {
+    color: white;
+    font-style: 18px;
+    font-weight: bold;
+}
+nav li a.nav-link:hover, nav li a.nav-link:focus {
+    color: gainsboro;
+}
+
+.dropdown-menu {
+    width: 200px;
+    border-radius: 0;
+    border: none;
+}
