@@ -1,4 +1,7 @@
 <?php
+// 啟用 session 功能，以便在不同頁面之間共享資料
+session_start();
+
 // 資料庫連線設定
 $db_host = 'localhost';
 $db_name = 'dragon20260304';

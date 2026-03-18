@@ -35,8 +35,24 @@ try {
         $row = mysqli_fetch_assoc($result);
         // 判斷 password_verify() 函數來驗證使用者輸入的密碼是否與資料庫中存儲的加密密碼相符
         if (password_verify($password, $row['password'])) {
+            // 產生 Token, 並將其存入 login_log 資料表中
+            $token = bin2hex(random_bytes(32));
+            $timeout_at = date('Y-m-d H:i:s', strtotime('+1 HOUR'));
+            $sql = "INSERT INTO login_log (username, token, timeout_at) VALUES ('$username','$token','$timeout_at')";
+            mysqli_query($conn, $sql);
+            
+            // 將 token、name、role 存入 session 中，以便後續驗證後台PHP使用者身份
+            if($row['role'] == 'admin') {
+                $_SESSION['token'] = $token;
+                $_SESSION['name'] = $row['name'];
+                $_SESSION['role'] = $row['role'];
+            }else{
+                // 非 admin 角色，清除 session 中的資料，並回傳 JSON 格式的資料 {"success": false, "message": "無權限登入"}
+                session_destroy();
+            }
+            
             // 密碼驗證成功，回傳 JSON 格式的資料 {"success": true, "message": "登入成功"}
-            echo json_encode(array("success" => true, "message" => "登入成功"));
+            echo json_encode(array("success" => true, "message" => "登入成功", "token" => $token, "name" => $row['name'], "role" => $row['role']));
         } else {
             // 密碼驗證失敗，回傳 JSON 格式的資料 {"success": false, "message": "密碼錯誤"}
             echo json_encode(array("success" => false, "message" => "密碼錯誤"));
