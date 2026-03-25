@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>最新消息</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+    <!-- Bootstrap CSS v5.2.1 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <style>
+        .news-item a {
+            color: black;
+            text-decoration: none;
+        }
+    </style>
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 引用主要共用 js -->
+    <script src="js/default.js"></script>
+</head>
+
+<body>
+    <header>
+        <!-- 引入外部檔案 nav.html -->
+        <div w3-include-html="nav.html"></div>
+    </header>
+    <main>
+        <div class="container py-5">
+            <h1 class="mb-4">線上購物</h1>
+            <!-- 麵包屑 -->
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item" aria-current="page"><a href="index.html">首頁</a></li>
+                    <li class="breadcrumb-item active" aria-current="page" id="store">線上購物</li>
+                </ol>
+            </nav>
+            <div class="row">
+                <!-- 目錄區 -->
+                <div class="col-md-2">
+                    <div id="product_type" class="btn-group-vertical w-100">
+                        <!-- 目錄項目 -->
+                    </div>
+                </div>
+                <!-- 產品列表區 -->
+                <div class="col-md-10">
+                    <div class="row" id="product_list">
+                        <!-- 產品項目 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <!-- place footer here -->
+    </footer>
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+    <!-- 引入外部檔案 nav.html 的 JavaScript -->
+    <script>
+        includeHTML();
+        function includeHTML() {
+            var z, i, elmnt, file, xhttp;
+            /* Loop through a collection of all HTML elements: */
+            z = document.getElementsByTagName("*");
+            for (i = 0; i < z.length; i++) {
+                elmnt = z[i];
+                /*search for elements with a certain atrribute:*/
+                file = elmnt.getAttribute("w3-include-html");
+                if (file) {
+                    /* Make an HTTP request using the attribute value as the file name: */
+                    xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4) {
+                            if (this.status == 200) { elmnt.innerHTML = this.responseText; }
+                            if (this.status == 404) { elmnt.innerHTML = "Page not found."; }
+                            /* Remove the attribute, and call this function once more: */
+                            elmnt.removeAttribute("w3-include-html");
+                            includeHTML();
+                        }
+                    }
+                    xhttp.open("GET", file, true);
+                    xhttp.send();
+                    /* Exit the function: */
+                    return;
+                }
+            }
+        }
+    </script>
+    <script>
+        function addCart(productId) {
+            // alert("已加入購物車，產品ID: " + productId);
+            // 這裡可以加入實際的加入購物車邏輯，例如發送 AJAX 請求到後端
+        }
+        $(function () {
+            // 這裡可以加入頁面載入後的初始化邏輯，例如載入產品列表
+            var apiUrl = "api/product_type.php";
+            var apiUrl2 = "api/product.php";
+            // 取得 url 參數 p 的值，並將其附加到 apiUrl 中
+            var urlParams = new URLSearchParams(window.location.search);
+            var t = urlParams.get('t');
+            if (t) {
+                apiUrl += "?t=" + t;
+                apiUrl2 += "?t=" + t;
+            }
+            $.get(apiUrl, function (data) {
+                // console.log(data);
+                // 這裡可以根據返回的資料動態生成產品列表
+                if(data.type != ""){
+                    $('.breadcrumb').append(`<li class="breadcrumb-item active" aria-current="page">${data.type}</li>`);
+                    $('#store').removeClass('active');
+                    $('#store').html(`<a href="store.html">線上購物</a>`);
+                }
+                
+                var str = "";
+                data.data.forEach(function (product) {
+                    str += `<a class="btn btn-outline-dark" href="store.html?t=${product.id}">${product.type}</a>`;
+                });
+                $('#product_type').html(str);
+            }, "json");
+
+            console.log(apiUrl2);
+                
+            $.get(apiUrl2, function (data2) {
+                console.log(data2);
+                // 這裡可以根據返回的資料動態生成產品列表
+                var str = "";
+                data2.data.forEach(function (product) {
+                    str += `
+                        <div class="col-md-3">
+                            <div class="card">
+                                <a href="product.html?p=${product.id}">
+                                <img src="upload/${product.img}" class="card-img-top" alt="...">
+                                </a>
+                                <div class="card-body">
+                                    <a href="product.html?p=${product.id}" class="text-decoration-none text-dark">
+                                    <h5 class="card-title">${product.name}</h5>
+                                    <p class="card-text">${product.price}</p>
+                                    </a>
+                                    <a href="#" class="btn btn-primary" onclick="addCart(${product.id})">加入購物車</a>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+                $('#product_list').html(str);
+            }, "json");
+        });
+    </script>
+</body>
+
+</html>

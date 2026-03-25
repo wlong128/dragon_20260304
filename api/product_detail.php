@@ -6,17 +6,17 @@ include_once('../admin/config.php');
 // 主要用來捕捉程式執行過程中可能發生的錯誤，
 // 並進行適當的處理，以避免程式崩潰或產生未預期的行為。
 try {
-    if(!isset($_GET['t'])) {
-        $t = "%";
+    if(!isset($_GET['p'])) {
+        die("false");
     }else {
-        $t = $_GET['t'];
+        $p = $_GET['p'];
     }
     // 建立資料庫連線
     $conn = mysqli_connect($db_host, $db_user, $db_pass, $db_name);
     // 設定連線編碼為 UTF-8
     mysqli_set_charset($conn, 'utf8');
     // 設定 SQL 查詢指令
-    $sql = "SELECT * FROM product WHERE product_state = '上架' AND product_type_id LIKE '%$t%'";
+    $sql = "SELECT * FROM product INNER JOIN product_type USING(product_type_id) WHERE product_state = '上架' AND product_id = '$p'";
     // echo $sql;
     // 執行 SQL 查詢指令，並將結果存入 $table 變數中(二維陣列)
     $result = mysqli_query($conn, $sql);
@@ -26,7 +26,10 @@ try {
         $row[$i]['id'] = $row_rs_items['product_id'];
         $row[$i]['name'] = $row_rs_items['product_name'];
         $row[$i]['img'] = $row_rs_items['product_img'];
+        $row[$i]['content'] = $row_rs_items['product_content'];
         $row[$i]['price'] = $row_rs_items['product_price'];
+        $row[$i]['type'] = $row_rs_items['product_type'];
+        $row[$i]['t'] = $row_rs_items['product_type_id'];
         $i++;
     };
     $arr['success'] = true;
