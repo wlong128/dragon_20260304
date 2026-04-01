@@ -372,6 +372,16 @@
             }
         }
     </script>
+    <script>
+    // 分享功能
+    function shareLine() {
+        const title = document.getElementById('newsTitle').textContent;
+        const url = window.location.href;
+        const text = title + ' ' + url;
+        const lineUrl = "https://line.me/R/msg/text/?" + encodeURIComponent(text);
+        window.open(lineUrl, "_blank");
+    }
+    </script>
 </body>
 
 </html>

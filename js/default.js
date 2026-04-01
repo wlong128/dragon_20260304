@@ -95,7 +95,7 @@ function shareFacebook() {
 function shareLine() {
     const title = document.title;
     const url = window.location.href;
-    const text = encodeURIComponent(title + ' ' + url);
-    const lineUrl = "https://line.me/R/share?text=" + text;
+    const text = title + ' ' + url;
+    const lineUrl = "https://line.me/R/msg/text/?" + encodeURIComponent(text);
     window.open(lineUrl, "_blank");
 }
