@@ -11,21 +11,28 @@ function checkNav() {
         token: localStorage.getItem('token')
     };
 
-    // 發送 AJAX 請求到 api/check.php
-    $.ajax({
-        url: 'api/check.php',
-        type: 'POST',
-        data: formData,
-        dataType: 'json',
-        success: function (response) {
-            if (response.success) {
-                // console.log(response.message)
+    // 判斷是否有 token 存在，如果有才執行 AJAX 請求
+    if (formData.token) {
+        // 發送 AJAX 請求到 api/check.php
+        $.ajax({
+            url: 'api/check.php',
+            type: 'POST',
+            data: formData,
+            dataType: 'json',
+            success: function (response) {
+                if (!response.success) {
+                    alert(response.message);
+                    // 清空 localstorage
+                    localStorage.clear();
+                    // 轉址 login.html
+                    window.location.href = 'login.html';
+                }
+            },
+            error: function () {
+                alert('發生錯誤，請稍後再試。'); // AJAX 請求失敗，顯示錯誤訊息
             }
-        },
-        error: function () {
-            alert('發生錯誤，請稍後再試。'); // AJAX 請求失敗，顯示錯誤訊息
-        }
-    });
+        });
+    }
 
     // 依角色決定下拉選單內容
     if (role === 'member') {
@@ -33,6 +40,7 @@ function checkNav() {
         $userArea.html(`
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">${name || '會員'}</a>
             <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="cart.html">購物車</a>
                 <a class="dropdown-item" href="logout.html">登出</a>
             </div>
         `);
@@ -41,6 +49,7 @@ function checkNav() {
         $userArea.html(`
             <a class="nav-link dropdown-toggle" href="#" id="dropdownId" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">管理員</a>
             <div class="dropdown-menu" aria-labelledby="dropdownId">
+                <a class="dropdown-item" href="cart.html">購物車</a>
                 <a class="dropdown-item" href="admin">後台管理</a>
                 <a class="dropdown-item" href="logout.html">登出</a>
             </div>
@@ -75,3 +84,12 @@ $(function () {
     // 避免某些頁面沒有載入 nav.html 或載入失敗，導致觀察器一直掛著
     // setTimeout(function () { observer.disconnect(); }, 5000);
 });
+
+// 分享功能
+function shareLine() {
+    const title = document.title;
+    const url = window.location.href;
+    const text = encodeURIComponent(title + ' ' + url);
+    const lineUrl = "https://line.me/R/share?text=" + text;
+    window.open(lineUrl, "_blank");
+}

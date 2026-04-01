@@ -21,6 +21,7 @@ try {
         $row[$i]['date'] = $row_rs_items['created_at'];
         $row[$i]['summary'] = $row_rs_items['summary'];
         $row[$i]['img'] = $row_rs_items['image'];
+        $row[$i]['author'] = $row_rs_items['author'];
         $i++;
     };
     $arr['success'] = true;

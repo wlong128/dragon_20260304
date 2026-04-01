@@ -30,7 +30,8 @@ try {
         $row = mysqli_fetch_assoc($result);
         // 判斷 token 是否過期，若未過期則回傳 JSON 格式的資料 {"success": true, "message": "驗證成功"}
         if ($row['timeout_at'] > date('Y-m-d H:i:s')) {
-            $now = date('Y-m-d H:i:s');
+            // token 驗證成功，更新 token 的過期時間，將 timeout_at 欄位的值更新為目前時間加 1 小時
+            $now = date('Y-m-d H:i:s', strtotime('+1 HOUR'));
             // 更新 token 的過期時間，將 timeout_at 欄位的值更新為目前時間
             $sql = "UPDATE login_log SET timeout_at = '$now' WHERE token = '$token'";
             mysqli_query($conn, $sql);
@@ -41,6 +42,9 @@ try {
     } else {
         // 查無此帳號，回傳 JSON 格式的資料 {"success": false, "message": "查無此帳號"}
         echo json_encode(array("success" => false, "message" => "token 已過期"));
+        // 清空session資料
+        session_destroy();
+
     }
 
 } catch (Exception $e) {

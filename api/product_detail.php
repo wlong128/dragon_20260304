@@ -26,7 +26,8 @@ try {
         $row[$i]['id'] = $row_rs_items['product_id'];
         $row[$i]['name'] = $row_rs_items['product_name'];
         $row[$i]['img'] = $row_rs_items['product_img'];
-        $row[$i]['content'] = $row_rs_items['product_content'];
+        // nl to br 將換行符號轉換成 HTML 的 <br> 標籤，以便在網頁上正確顯示換行
+        $row[$i]['content'] = nl2br($row_rs_items['product_content']);
         $row[$i]['price'] = $row_rs_items['product_price'];
         $row[$i]['type'] = $row_rs_items['product_type'];
         $row[$i]['t'] = $row_rs_items['product_type_id'];
@@ -36,6 +37,10 @@ try {
     $arr['data'] = $row;
     $api = json_encode($arr, JSON_UNESCAPED_UNICODE);
     echo $api;
+
+    // 更新瀏覽次數
+    $sql = "UPDATE product SET views = views + 1 WHERE product_id = '$p'";
+    mysqli_query($conn, $sql);
 } catch (Exception $e) {
     echo "連線失敗: " . $e->getMessage();
     die();

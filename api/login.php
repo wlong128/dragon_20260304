@@ -37,6 +37,7 @@ try {
         if (password_verify($password, $row['password'])) {
             // 產生 Token, 並將其存入 login_log 資料表中
             $token = bin2hex(random_bytes(32));
+            // 設定登入逾期時間為 1 小時，並將其存入 login_log 資料表中
             $timeout_at = date('Y-m-d H:i:s', strtotime('+1 HOUR'));
             $sql = "INSERT INTO login_log (username, token, timeout_at) VALUES ('$username','$token','$timeout_at')";
             mysqli_query($conn, $sql);

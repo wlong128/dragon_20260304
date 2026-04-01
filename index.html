@@ -10,12 +10,16 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-    <style>
-        .news-item a {
-            color: black;
-            text-decoration: none;
-        }
-    </style>
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+
+    <!-- 共用樣式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 首頁樣式 -->
+    <link rel="stylesheet" href="css/index.css">
+
     <!-- jquery -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -29,20 +33,297 @@
         <div w3-include-html="nav.html"></div>
     </header>
     <main>
-        <div class="container py-5">
-            <h1 class="mb-4">首頁</h1>
-            <!-- 麵包屑 -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">首頁</li>
-                </ol>
-            </nav>
+        <!-- ===== HERO SECTION ===== -->
+        <section class="hero-section">
+            <img src="images/hero_banner.jpg" alt="科技產品展示" class="hero-bg" />
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-7">
+                        <div class="hero-badge animate-fade-up">
+                            <i class="bi bi-lightning-charge-fill me-1"></i> 2025 最新科技產品上架
+                        </div>
+                        <h1 class="hero-title animate-fade-up delay-1">
+                            探索<span class="highlight">未來科技</span><br />
+                            從這裡開始
+                        </h1>
+                        <p class="hero-subtitle animate-fade-up delay-2">
+                            烏龍院提供最頂尖的電腦、手機及周邊配件，
+                            以專業的服務與嚴選的品質，讓您輕鬆掌握科技新趨勢。
+                        </p>
+                        <div class="d-flex flex-wrap gap-3 animate-fade-up delay-3">
+                            <a href="#" class="btn btn-tech-primary">
+                                <i class="bi bi-bag-fill me-2"></i>立即選購
+                            </a>
+                            <a href="about.html" class="btn btn-tech-outline">
+                                <i class="bi bi-info-circle me-2"></i>了解更多
+                            </a>
+                        </div>
+                        <div class="hero-stats animate-fade-up delay-4">
+                            <div class="stat-item">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">精選商品</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">10K+</div>
+                                <div class="stat-label">滿意客戶</div>
+                            </div>
+                            <div class="stat-item">
+                                <div class="stat-number">15年</div>
+                                <div class="stat-label">專業經驗</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        </div>
+        <!-- ===== FEATURES SECTION ===== -->
+        <section class="features-section">
+            <div class="container">
+                <div class="text-center mb-60" style="margin-bottom: 50px;">
+                    <div class="section-label">為什麼選擇我們</div>
+                    <h2 class="section-title">烏龍院的核心優勢</h2>
+                    <p class="section-desc">我們致力於提供最優質的科技產品與服務，讓每位客戶都能享受到最佳的購物體驗。</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-shield-check"></i>
+                            </div>
+                            <h3 class="feature-title">原廠保固保障</h3>
+                            <p class="feature-desc">所有商品均附原廠保固，讓您購物無後顧之憂，品質有保障。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-truck"></i>
+                            </div>
+                            <h3 class="feature-title">快速到貨服務</h3>
+                            <p class="feature-desc">全台24小時快速配送，讓您第一時間體驗最新科技產品。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-headset"></i>
+                            </div>
+                            <h3 class="feature-title">專業技術支援</h3>
+                            <p class="feature-desc">擁有專業技術團隊，提供售前諮詢與售後技術支援服務。</p>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <div class="feature-card">
+                            <div class="feature-icon">
+                                <i class="bi bi-credit-card"></i>
+                            </div>
+                            <h3 class="feature-title">多元付款方式</h3>
+                            <p class="feature-desc">支援信用卡、LINE Pay、轉帳等多種付款方式，消費更便利。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRODUCTS SECTION ===== -->
+        <section class="products-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <div class="section-label">精選商品</div>
+                    <h2 class="section-title">熱銷科技產品</h2>
+                    <p class="section-desc">嚴選市場上最受歡迎的電腦、手機及配件，為您帶來最優質的科技體驗。</p>
+                </div>
+                <div class="row g-4">
+                    <!-- Product 1 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/product_laptop.jpg" alt="高效能筆記型電腦" />
+                                <span class="product-tag">熱銷</span>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-category">筆記型電腦</div>
+                                <h3 class="product-name">超薄高效能筆記型電腦</h3>
+                                <p class="product-desc">搭載最新處理器，輕薄機身設計，滿足商務與創作需求。</p>
+                                <div>
+                                    <span class="product-price">NT$ 32,900</span>
+                                    <span class="product-price-old">NT$ 38,000</span>
+                                </div>
+                                <a href="#" class="btn btn-add-cart">
+                                    <i class="bi bi-cart-plus me-2"></i>加入購物車
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/product_phone.jpg" alt="旗艦智慧型手機" />
+                                <span class="product-tag">新品</span>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-category">智慧型手機</div>
+                                <h3 class="product-name">旗艦智慧型手機 Pro</h3>
+                                <p class="product-desc">頂級相機系統、超長續航，帶給您前所未有的手機體驗。</p>
+                                <div>
+                                    <span class="product-price">NT$ 28,500</span>
+                                    <span class="product-price-old">NT$ 31,000</span>
+                                </div>
+                                <a href="#" class="btn btn-add-cart">
+                                    <i class="bi bi-cart-plus me-2"></i>加入購物車
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card">
+                            <div class="product-img-wrapper">
+                                <img src="images/product_accessories.jpg" alt="科技配件組合" />
+                                <span class="product-tag">特惠</span>
+                            </div>
+                            <div class="product-body">
+                                <div class="product-category">周邊配件</div>
+                                <h3 class="product-name">智慧科技配件組合</h3>
+                                <p class="product-desc">無線耳機、智慧手錶、機械鍵盤，打造完整科技生活圈。</p>
+                                <div>
+                                    <span class="product-price">NT$ 8,800</span>
+                                    <span class="product-price-old">NT$ 12,000</span>
+                                </div>
+                                <a href="#" class="btn btn-add-cart">
+                                    <i class="bi bi-cart-plus me-2"></i>加入購物車
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-tech-primary px-5">
+                        <i class="bi bi-grid-fill me-2"></i>查看全部商品
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PROMO SECTION ===== -->
+        <section class="promo-section">
+            <div class="container promo-content">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <div class="section-label" style="color: #00b4d8;">限時優惠</div>
+                        <h2 class="promo-title">
+                            會員專屬<span class="highlight">九折優惠</span><br />
+                            立即加入享好康
+                        </h2>
+                        <p class="promo-desc">
+                            成為烏龍院會員，即可享有專屬折扣、優先購買新品資格，
+                            以及不定期的會員限定特賣活動，讓您以最優惠的價格入手心儀商品。
+                        </p>
+                        <a href="#" class="btn btn-tech-primary">
+                            <i class="bi bi-person-plus-fill me-2"></i>免費加入會員
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row g-3">
+                            <div class="col-6">
+                                <div class="promo-card">
+                                    <div class="promo-card-icon"><i class="bi bi-percent"></i></div>
+                                    <div class="promo-card-title">會員折扣</div>
+                                    <div class="promo-card-desc">全館商品享九折起優惠</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="promo-card">
+                                    <div class="promo-card-icon"><i class="bi bi-gift-fill"></i></div>
+                                    <div class="promo-card-title">生日禮遇</div>
+                                    <div class="promo-card-desc">生日當月享雙倍點數回饋</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="promo-card">
+                                    <div class="promo-card-icon"><i class="bi bi-bell-fill"></i></div>
+                                    <div class="promo-card-title">新品搶先知</div>
+                                    <div class="promo-card-desc">優先收到新品上架通知</div>
+                                </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="promo-card">
+                                    <div class="promo-card-icon"><i class="bi bi-star-fill"></i></div>
+                                    <div class="promo-card-title">點數累積</div>
+                                    <div class="promo-card-desc">每次消費累積點數兌換好禮</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== TESTIMONIALS ===== -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <div class="section-label">客戶評價</div>
+                    <h2 class="section-title">顧客怎麼說</h2>
+                    <p class="section-desc">來自真實顧客的評價，是我們持續進步的最大動力。</p>
+                </div>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="testimonial-text">「在烏龍院買了筆電，從諮詢到到貨整個流程非常順暢，客服人員專業又親切，商品品質也很好，下次還會再來！」</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">陳</div>
+                                <div>
+                                    <div class="testimonial-name">陳小明</div>
+                                    <div class="testimonial-role">設計師</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                            </div>
+                            <p class="testimonial-text">「手機壞了緊急需要換新機，烏龍院的快速到貨服務真的救了我！隔天就收到了，而且價格比其他地方便宜很多。」</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">林</div>
+                                <div>
+                                    <div class="testimonial-name">林美玲</div>
+                                    <div class="testimonial-role">業務主管</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="testimonial-card">
+                            <div class="testimonial-stars">
+                                <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+                            </div>
+                            <p class="testimonial-text">「配件組合超值！無線耳機音質很棒，智慧手錶功能齊全，整體來說非常物超所值，強力推薦給大家！」</p>
+                            <div class="testimonial-author">
+                                <div class="testimonial-avatar">王</div>
+                                <div>
+                                    <div class="testimonial-name">王大偉</div>
+                                    <div class="testimonial-role">工程師</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
+
+    <!-- 引入外部檔案 footer.html -->
+    <div w3-include-html="footer.html"></div>
+    
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"

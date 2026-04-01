@@ -26,7 +26,7 @@ try {
             $row[$i]['img'] = $row_rs_items['image'];
             $row[$i]['views'] = $row_rs_items['views'];
             $row[$i]['author'] = $row_rs_items['author'];
-            $row[$i]['content'] = $row_rs_items['content'];
+            $row[$i]['content'] = nl2br($row_rs_items['content']);
             $i++;
         };
         $arr['success'] = true;

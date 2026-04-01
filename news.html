@@ -10,6 +10,14 @@
     <!-- Bootstrap CSS v5.2.1 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    <!-- 共用樣式 -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- 頁面樣式 -->
+    <link rel="stylesheet" href="css/news.css">
     <style>
         .news-item a {
             color: black;
@@ -28,53 +36,207 @@
         <!-- 引入外部檔案 nav.html -->
         <div w3-include-html="nav.html"></div>
     </header>
+
     <main>
-        <div class="container py-5">
-            <h1 class="mb-4">最新消息</h1>
-            <!-- 麵包屑 -->
-            <nav aria-label="breadcrumb">
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">最新消息</li>
-                </ol>
-            </nav>
-            <!-- 新聞列表 -->
-            <div id="news-list">
-                <!-- 新聞項目 row -->
-                <!-- <div class="row mb-3 news-item">
-                    <div class="col-md-4">
-                        <a href="news-detail.html?p=1"><img class="img-fluid" src="upload/202603092123419263.jpg"
-                                alt=""></a>
+        <!-- ===== PAGE HERO ===== -->
+        <section class="page-hero">
+            <div class="container page-hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="page-hero-label">
+                            <i class="bi bi-newspaper me-2"></i>最新消息
+                        </div>
+                        <h1 class="page-hero-title">
+                            掌握<span class="highlight">科技動態</span><br />
+                            了解烏龍院最新資訊
+                        </h1>
+                        <p class="page-hero-desc">
+                            從產品發布、活動公告到行業資訊，烏龍院為您帶來最新最全的科技零售動態。
+                        </p>
                     </div>
-                    <div class="col-md-8">
-                        <a href="news-detail.html?p=1">
-                            <h2 class="h3">中華隊0比13遭日本在7局提前結束比賽 投手壓不住大谷翔平等一票好手、打者僅張育成1安打</h2>
-                            <p class="text-danger">發佈日期：2026-03-06</p>
-                            <p class="h5">
-                                2026年世界棒球經典賽，中華隊首戰對上地主日本隊，以鄭浩均先發迎戰山本由伸。第2局中華隊投手群失控，日本隊在大谷翔平滿貫全壘打帶動下單局攻下10分，奠定勝基。最終日本以13比0在7局提前扣倒中華隊，中華隊吞下預賽二連敗。此役也創下中華隊經典賽單局最多失分紀錄，接下來將陸續對戰捷克與韓國力拚晉級。
-                            </p>
-                        </a>
-                    </div>
-                </div> -->
-                <!-- /新聞項目 row -->
-                <div class="row" id="news-list-col">
-                    <!-- 新聞項目 col-4 -->
-                    <div class="col-md-4 news-item">
-                        <a href="news-detail.html?p=1">
-                            <img class="img-fluid" src="upload/202603092123419263.jpg" alt="">
-                            <h2 class="h4 mt-2">中華隊0比13遭日本在7局提前結束比賽 投手壓不住大谷翔平等一票好手、打者僅張育成1安打</h2>
-                            <p class="text-danger">發佈日期：2026-03-06</p>
-                        </a>
-                    </div>
-                    <!-- /新聞項目 col-4 -->
                 </div>
             </div>
-            <!-- /新聞列表 -->
+        </section>
+
+        <!-- ===== BREADCRUMB ===== -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">最新消息</li>
+                    </ol>
+                </nav>
+            </div>
         </div>
+
+        <!-- ===== NEWS FILTER ===== -->
+        <section class="news-filter-section">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-8">
+                        <!-- <div class="filter-group">
+                            <span class="filter-label">篩選分類：</span>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">
+                                    <i class="bi bi-funnel me-1"></i>全部
+                                </button>
+                                <button class="filter-btn" data-filter="product">
+                                    <i class="bi bi-box me-1"></i>新品發布
+                                </button>
+                                <button class="filter-btn" data-filter="activity">
+                                    <i class="bi bi-star me-1"></i>活動公告
+                                </button>
+                                <button class="filter-btn" data-filter="tech">
+                                    <i class="bi bi-lightning me-1"></i>技術資訊
+                                </button>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="col-md-4">
+                        <div class="search-box">
+                            <input type="text" class="form-control search-input" placeholder="搜尋新聞...">
+                            <button class="btn-search"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWS LIST ===== -->
+        <section class="news-section">
+            <div class="container">
+                <!-- 新聞網格 -->
+                <div class="news-grid" id="newsContainer">
+                    <!-- 測試新聞項目 1 -->
+                    <article class="news-card" data-category="product">
+                        <div class="news-card-image">
+                            <img src="images/product_laptop.jpg" alt="新品發布" class="news-image">
+                            <div class="news-category-badge">新品發布</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-27</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>編輯部</span>
+                            </div>
+                            <h3 class="news-title">最新旗艦筆記型電腦上市，性能突破新高度</h3>
+                            <p class="news-excerpt">
+                                烏龍院隆重推出最新款旗艦筆記型電腦，搭載最新一代處理器，性能提升 40%，續航時間長達 15 小時，是專業人士的最佳選擇。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 2 -->
+                    <article class="news-card" data-category="activity">
+                        <div class="news-card-image">
+                            <img src="images/product_phone.jpg" alt="活動公告" class="news-image">
+                            <div class="news-category-badge activity">活動公告</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-25</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>行銷部</span>
+                            </div>
+                            <h3 class="news-title">春季購物節開幕，全館商品享優惠折扣</h3>
+                            <p class="news-excerpt">
+                                烏龍院春季購物節即將開幕！精選商品享受最高 5 折優惠，會員更可享雙倍點數回饋，限時三週，歡迎把握機會。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 3 -->
+                    <article class="news-card" data-category="tech">
+                        <div class="news-card-image">
+                            <img src="images/product_accessories.jpg" alt="技術資訊" class="news-image">
+                            <div class="news-category-badge tech">技術資訊</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-20</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>技術部</span>
+                            </div>
+                            <h3 class="news-title">AI 芯片技術解析，未來科技的核心動力</h3>
+                            <p class="news-excerpt">
+                                深入了解最新 AI 芯片技術如何革新科技產業。本文詳細解析其工作原理、應用場景，以及對消費者的實際影響。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 分頁 -->
+                <div class="pagination-section">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">上一頁</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">下一頁</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-6">
+                            <div class="newsletter-icon">
+                                <i class="bi bi-envelope-heart"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2 class="newsletter-title">訂閱我們的電子報</h2>
+                            <p class="newsletter-desc">
+                                第一時間獲取烏龍院最新消息、產品發布和獨家優惠，立即訂閱我們的電子報。
+                            </p>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="輸入您的電子郵件">
+                                    <button class="btn btn-subscribe" type="submit">訂閱</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
+    
+    <!-- 引入外部檔案 footer.html -->
+    <div w3-include-html="footer.html"></div>
+
     <!-- Bootstrap JavaScript Libraries -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
@@ -101,36 +263,33 @@
                     // 例如，可以將數據動態添加到頁面上
                     $str = '';
                     data.data.forEach(function (newsItem) {
-                        // $str += `
-                        //         <div class="row mb-3 news-item">
-                        //             <div class="col-md-4">
-                        //                 <a href="news-detail.html?p=1"><img class="img-fluid" src="upload/${newsItem.img}"
-                        //                         alt=""></a>
-                        //             </div>
-                        //             <div class="col-md-8">
-                        //                 <a href="news-detail.html?p=1">
-                        //                     <h2 class="h3">${newsItem.title}</h2>
-                        //                     <p class="text-danger">發佈日期：${newsItem.date}</p>
-                        //                     <p class="h5">
-                        //                         ${newsItem.summary}
-                        //                     </p>
-                        //                 </a>
-                        //             </div>
-                        //         </div>
-                        //         `;
                         $str += `
-                                <div class="col-md-4 news-item">
-                                    <a href="news-detail.html?p=1">
-                                        <div class="ratio ratio-16x9">
-                                            <img class="img-fluid" src="upload/${newsItem.img}" alt="">
+                                <article class="news-card" data-category="product">
+                                    <div class="news-card-image">
+                                        <img src="upload/${newsItem.img}" alt="新品發布" class="news-image">
+                                        <div class="news-overlay">
+                                            <a href="news-detail.html?p=${newsItem.id}" class="btn-read-more">閱讀全文</a>
                                         </div>
-                                        <h2 class="h4 mt-2">${newsItem.title}</h2>
-                                        <p class="text-danger">發佈日期：${newsItem.date}</p>
-                                    </a>
-                                </div>
+                                    </div>
+                                    <div class="news-card-body">
+                                        <div class="news-meta">
+                                            <span class="news-date"><i class="bi bi-calendar3 me-1"></i>${newsItem.date}</span>
+                                            <span class="news-author"><i class="bi bi-person me-1"></i>${newsItem.author}</span>
+                                        </div>
+                                        <h3 class="news-title">${newsItem.title}</h3>
+                                        <p class="news-excerpt">
+                                            ${newsItem.summary}
+                                        </p>
+                                        <div class="news-footer">
+                                            <a href="news-detail.html?p=${newsItem.id}" class="read-more-link">
+                                                繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
                                 `;
                     });
-                    $('#news-list-col').html($str);
+                    $('#newsContainer').html($str);
                 },
                 error: function (xhr, status, error) {
                     console.error('Error fetching news:', error);

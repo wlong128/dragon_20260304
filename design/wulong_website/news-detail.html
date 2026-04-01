@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <title>新聞詳情 - 烏龍院科技產品專賣店</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="烏龍院新聞詳情頁面" />
+
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    <!-- 共用樣式表 -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <!-- 新聞詳情頁面專用樣式表 -->
+    <link rel="stylesheet" href="../../css/news-detail.css" />
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-tech navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="navbar-brand-text">烏龍院</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">關於我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.html">最新消息</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">線上購物</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">管理員</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">後台管理</a></li>
+                            <li><a class="dropdown-item" href="#">登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ===== BREADCRUMB ===== -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item"><a href="news.html">最新消息</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">新聞詳情</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ===== ARTICLE CONTENT ===== -->
+        <article class="article-section">
+            <div class="container">
+                <div class="row g-4">
+                    <!-- 主要內容 -->
+                    <div class="col-lg-8">
+                        <div id="news-detail">
+                            <!-- 文章標題 -->
+                            <div class="article-header">
+                                <h1 class="article-title" id="newsTitle">
+                                    感應式水龍頭狂斷水 達人教1招破解 全場讚：太實用
+                                </h1>
+                                <div class="article-meta">
+                                    <div class="meta-item">
+                                        <i class="bi bi-calendar3"></i>
+                                        <span id="newsDate">2026-03-13 20:38:01</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="bi bi-person"></i>
+                                        <span id="newsAuthor">Yahoo News</span>
+                                    </div>
+                                    <div class="meta-item">
+                                        <i class="bi bi-eye"></i>
+                                        <span id="newsViews">0</span> 次瀏覽
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 文章圖片 -->
+                            <div class="article-image-wrapper">
+                                <img id="newsImage" src="images/hero_banner.jpg" alt="新聞圖片" class="article-image">
+                            </div>
+                            <!-- 文章內容 -->
+                            <div class="article-body">
+                                <div id="newsContent" class="article-content">
+                                    <!-- 內容由 API 動態插入 -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 分享按鈕 -->
+                        <div class="article-share">
+                            <span class="share-label">分享此文章：</span>
+                            <div class="share-buttons">
+                                <a href="#" class="share-btn facebook" title="分享到 Facebook">
+                                    <i class="bi bi-facebook"></i>
+                                </a>
+                                <a href="#" class="share-btn twitter" title="分享到 Twitter">
+                                    <i class="bi bi-twitter"></i>
+                                </a>
+                                <a href="#" class="share-btn line" title="分享到 LINE">
+                                    <i class="bi bi-line"></i>
+                                </a>
+                                <a href="#" class="share-btn copy" title="複製連結">
+                                    <i class="bi bi-link-45deg"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 相關文章 -->
+                        <div class="related-articles">
+                            <h3 class="related-title">相關文章</h3>
+                            <div class="related-grid">
+                                <a href="#" class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/product_laptop.jpg" alt="相關文章">
+                                    </div>
+                                    <div class="related-body">
+                                        <h4 class="related-card-title">最新旗艦筆記型電腦上市</h4>
+                                        <span class="related-date">2026-03-27</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/product_phone.jpg" alt="相關文章">
+                                    </div>
+                                    <div class="related-body">
+                                        <h4 class="related-card-title">春季購物節開幕優惠</h4>
+                                        <span class="related-date">2026-03-25</span>
+                                    </div>
+                                </a>
+                                <a href="#" class="related-card">
+                                    <div class="related-image">
+                                        <img src="images/product_accessories.jpg" alt="相關文章">
+                                    </div>
+                                    <div class="related-body">
+                                        <h4 class="related-card-title">智慧家居配件新系列</h4>
+                                        <span class="related-date">2026-03-18</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 側邊欄 -->
+                    <div class="col-lg-4">
+                        <!-- 最新消息小工具 -->
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">最新消息</h4>
+                            <div class="widget-content">
+                                <div class="news-item">
+                                    <div class="news-item-date">2026-03-27</div>
+                                    <a href="#" class="news-item-link">最新旗艦筆記型電腦上市，性能突破新高度</a>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-item-date">2026-03-25</div>
+                                    <a href="#" class="news-item-link">春季購物節開幕，全館商品享優惠折扣</a>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-item-date">2026-03-20</div>
+                                    <a href="#" class="news-item-link">AI 芯片技術解析，未來科技的核心動力</a>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-item-date">2026-03-18</div>
+                                    <a href="#" class="news-item-link">智慧家居配件新系列發布，打造未來生活</a>
+                                </div>
+                                <div class="news-item">
+                                    <div class="news-item-date">2026-03-15</div>
+                                    <a href="#" class="news-item-link">會員日特別優惠，享受專屬購物福利</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 分類小工具 -->
+                        <div class="sidebar-widget">
+                            <h4 class="widget-title">分類</h4>
+                            <div class="widget-content">
+                                <a href="news.html?category=product" class="category-link">
+                                    <i class="bi bi-box"></i> 新品發布
+                                </a>
+                                <a href="news.html?category=activity" class="category-link">
+                                    <i class="bi bi-star"></i> 活動公告
+                                </a>
+                                <a href="news.html?category=tech" class="category-link">
+                                    <i class="bi bi-lightning"></i> 技術資訊
+                                </a>
+                            </div>
+                        </div>
+
+                        <!-- 訂閱小工具 -->
+                        <div class="sidebar-widget newsletter-widget">
+                            <h4 class="widget-title">訂閱電子報</h4>
+                            <p class="widget-desc">第一時間獲取烏龍院最新消息和獨家優惠</p>
+                            <form class="newsletter-form">
+                                <input type="email" class="form-control" placeholder="輸入您的電子郵件" required>
+                                <button type="submit" class="btn btn-subscribe-widget">訂閱</button>
+                            </form>
+                        </div>
+
+                        <!-- 聯絡資訊小工具 -->
+                        <div class="sidebar-widget contact-widget">
+                            <h4 class="widget-title">聯絡我們</h4>
+                            <div class="widget-content">
+                                <div class="contact-item">
+                                    <i class="bi bi-telephone"></i>
+                                    <span>(02) 2345-6789</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-envelope"></i>
+                                    <span>service@wulong.com.tw</span>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="bi bi-clock"></i>
+                                    <span>週一至週六 10:00 - 20:00</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+        <!-- ===== CTA SECTION ===== -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">
+                        探索更多<span class="highlight">科技產品</span>
+                    </h2>
+                    <p class="cta-desc">
+                        烏龍院提供最新的電腦、手機及周邊配件，歡迎蒞臨選購。
+                    </p>
+                    <a href="#" class="btn btn-tech-primary">前往購物</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-tech">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">烏龍院</div>
+                    <p class="footer-desc">
+                        烏龍院是台灣領先的科技產品專賣店，提供最新電腦、手機及周邊配件，
+                        以專業服務與嚴選品質，陪伴您體驗科技生活的每一刻。
+                    </p>
+                    <div>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-line"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">快速連結</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="news.html">最新消息</a></li>
+                        <li><a href="#">線上購物</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">產品分類</div>
+                    <ul class="footer-links">
+                        <li><a href="#">筆記型電腦</a></li>
+                        <li><a href="#">桌上型電腦</a></li>
+                        <li><a href="#">智慧型手機</a></li>
+                        <li><a href="#">周邊配件</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-heading">聯絡資訊</div>
+                    <ul class="footer-links">
+                        <li><i class="bi bi-geo-alt me-2" style="color: #00b4d8;"></i>台北市信義區科技路 100 號</li>
+                        <li><i class="bi bi-telephone me-2" style="color: #00b4d8;"></i>(02) 2345-6789</li>
+                        <li><i class="bi bi-envelope me-2" style="color: #00b4d8;"></i>service@wulong.com.tw</li>
+                        <li><i class="bi bi-clock me-2" style="color: #00b4d8;"></i>週一至週六 10:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider" />
+            <div class="d-flex flex-wrap justify-content-between align-items-center footer-bottom">
+                <span>© 2025 烏龍院科技. 版權所有</span>
+                <span>
+                    <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none; margin-right: 16px;">隱私政策</a>
+                    <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">使用條款</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <!-- 新聞詳情頁面互動腳本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 從 URL 獲取新聞 ID
+            const urlParams = new URLSearchParams(window.location.search);
+            const newsId = urlParams.get('p');
+
+            if (newsId) {
+                // 從 API 獲取新聞詳情
+                fetchNewsDetail(newsId);
+            }
+
+            // 分享按鈕功能
+            setupShareButtons();
+        });
+
+        /**
+         * 從 API 獲取新聞詳情
+         * @param {string} newsId - 新聞 ID
+         */
+        function fetchNewsDetail(newsId) {
+            // 這裡替換為您的實際 API 端點
+            const apiUrl = `/api/news?id=${newsId}`;
+
+            fetch(apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success && data.data && data.data.length > 0) {
+                        const news = data.data[0];
+                        displayNewsDetail(news);
+                    } else {
+                        showErrorMessage('無法載入新聞內容');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching news:', error);
+                    showErrorMessage('載入新聞時發生錯誤');
+                });
+        }
+
+        /**
+         * 顯示新聞詳情
+         * @param {object} news - 新聞數據
+         */
+        function displayNewsDetail(news) {
+            // 更新標題
+            document.getElementById('newsTitle').textContent = news.title;
+            document.title = news.title + ' - 烏龍院科技產品專賣店';
+
+            // 更新日期
+            document.getElementById('newsDate').textContent = news.date;
+
+            // 更新作者
+            document.getElementById('newsAuthor').textContent = news.author;
+
+            // 更新瀏覽次數
+            document.getElementById('newsViews').textContent = news.views || '0';
+
+            // 更新圖片
+            if (news.img) {
+                // 如果 img 是完整 URL
+                if (news.img.startsWith('http')) {
+                    document.getElementById('newsImage').src = news.img;
+                } else {
+                    // 如果 img 是相對路徑或檔案名稱
+                    document.getElementById('newsImage').src = `images/${news.img}`;
+                }
+            }
+
+            // 更新內容 - 將換行符轉換為段落
+            const contentElement = document.getElementById('newsContent');
+            if (news.content) {
+                // 分割內容為段落
+                const paragraphs = news.content.split('\r\n').filter(p => p.trim());
+                contentElement.innerHTML = paragraphs
+                    .map(para => `<p>${para.trim()}</p>`)
+                    .join('');
+            }
+        }
+
+        /**
+         * 顯示錯誤訊息
+         * @param {string} message - 錯誤訊息
+         */
+        function showErrorMessage(message) {
+            const contentElement = document.getElementById('newsContent');
+            contentElement.innerHTML = `<div class="alert alert-warning">${message}</div>`;
+        }
+
+        /**
+         * 設置分享按鈕功能
+         */
+        function setupShareButtons() {
+            const shareButtons = document.querySelectorAll('.share-btn');
+            const pageTitle = document.getElementById('newsTitle').textContent;
+            const pageUrl = window.location.href;
+
+            shareButtons.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+
+                    if (this.classList.contains('facebook')) {
+                        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(pageUrl)}`, '_blank');
+                    } else if (this.classList.contains('twitter')) {
+                        window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(pageTitle)}`, '_blank');
+                    } else if (this.classList.contains('line')) {
+                        window.open(`https://line.me/R/msg/0?${encodeURIComponent(pageUrl)}`, '_blank');
+                    } else if (this.classList.contains('copy')) {
+                        navigator.clipboard.writeText(pageUrl).then(() => {
+                            alert('連結已複製到剪貼板');
+                        });
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+
+</html>

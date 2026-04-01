@@ -33,9 +33,10 @@
             </form>
         </div>
     </main>
-    <footer>
-        <!-- place footer here -->
-    </footer>
+        
+    <!-- 引入外部檔案 footer.html -->
+    <div w3-include-html="footer.html"></div>
+    
     <!-- Bootstrap JavaScript Libraries -->
     <script
         src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"

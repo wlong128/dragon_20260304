@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="zh-TW">
+
+<head>
+    <title>最新消息 - 烏龍院科技產品專賣店</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="烏龍院最新消息、產品發布、活動公告，掌握科技零售業的最新動態。" />
+
+    <!-- Bootstrap CSS v5.3.2 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+    <!-- 共用樣式表 -->
+    <link rel="stylesheet" href="../../css/style.css" />
+    <!-- 最新消息頁面專用樣式表 -->
+    <link rel="stylesheet" href="../../css/news.css" />
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- 引用主要共用 js -->
+    <script src="js/default.js"></script>
+</head>
+
+<body>
+
+    <!-- ===== NAVBAR ===== -->
+    <nav class="navbar navbar-tech navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="navbar-brand-text">烏龍院</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarMain">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首頁</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">關於我們</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.html">最新消息</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">線上購物</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">管理員</a>
+                        <ul class="dropdown-menu dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="#">後台管理</a></li>
+                            <li><a class="dropdown-item" href="#">登出</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- ===== PAGE HERO ===== -->
+        <section class="page-hero">
+            <div class="container page-hero-content">
+                <div class="row align-items-center">
+                    <div class="col-lg-8">
+                        <div class="page-hero-label">
+                            <i class="bi bi-newspaper me-2"></i>最新消息
+                        </div>
+                        <h1 class="page-hero-title">
+                            掌握<span class="highlight">科技動態</span><br />
+                            了解烏龍院最新資訊
+                        </h1>
+                        <p class="page-hero-desc">
+                            從產品發布、活動公告到行業資訊，烏龍院為您帶來最新最全的科技零售動態。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== BREADCRUMB ===== -->
+        <div class="breadcrumb-section">
+            <div class="container">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-0">
+                        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">最新消息</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+
+        <!-- ===== NEWS FILTER ===== -->
+        <section class="news-filter-section">
+            <div class="container">
+                <div class="row g-3 align-items-center">
+                    <div class="col-md-8">
+                        <div class="filter-group">
+                            <span class="filter-label">篩選分類：</span>
+                            <div class="filter-buttons">
+                                <button class="filter-btn active" data-filter="all">
+                                    <i class="bi bi-funnel me-1"></i>全部
+                                </button>
+                                <button class="filter-btn" data-filter="product">
+                                    <i class="bi bi-box me-1"></i>新品發布
+                                </button>
+                                <button class="filter-btn" data-filter="activity">
+                                    <i class="bi bi-star me-1"></i>活動公告
+                                </button>
+                                <button class="filter-btn" data-filter="tech">
+                                    <i class="bi bi-lightning me-1"></i>技術資訊
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="search-box">
+                            <input type="text" class="form-control search-input" placeholder="搜尋新聞...">
+                            <button class="btn-search"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWS LIST ===== -->
+        <section class="news-section">
+            <div class="container">
+                <!-- 新聞網格 -->
+                <div class="news-grid" id="newsContainer">
+                    <!-- 測試新聞項目 1 -->
+                    <article class="news-card" data-category="product">
+                        <div class="news-card-image">
+                            <img src="images/product_laptop.jpg" alt="新品發布" class="news-image">
+                            <div class="news-category-badge">新品發布</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-27</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>編輯部</span>
+                            </div>
+                            <h3 class="news-title">最新旗艦筆記型電腦上市，性能突破新高度</h3>
+                            <p class="news-excerpt">
+                                烏龍院隆重推出最新款旗艦筆記型電腦，搭載最新一代處理器，性能提升 40%，續航時間長達 15 小時，是專業人士的最佳選擇。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 2 -->
+                    <article class="news-card" data-category="activity">
+                        <div class="news-card-image">
+                            <img src="images/product_phone.jpg" alt="活動公告" class="news-image">
+                            <div class="news-category-badge activity">活動公告</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-25</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>行銷部</span>
+                            </div>
+                            <h3 class="news-title">春季購物節開幕，全館商品享優惠折扣</h3>
+                            <p class="news-excerpt">
+                                烏龍院春季購物節即將開幕！精選商品享受最高 5 折優惠，會員更可享雙倍點數回饋，限時三週，歡迎把握機會。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 3 -->
+                    <article class="news-card" data-category="tech">
+                        <div class="news-card-image">
+                            <img src="images/product_accessories.jpg" alt="技術資訊" class="news-image">
+                            <div class="news-category-badge tech">技術資訊</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-20</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>技術部</span>
+                            </div>
+                            <h3 class="news-title">AI 芯片技術解析，未來科技的核心動力</h3>
+                            <p class="news-excerpt">
+                                深入了解最新 AI 芯片技術如何革新科技產業。本文詳細解析其工作原理、應用場景，以及對消費者的實際影響。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 4 -->
+                    <article class="news-card" data-category="product">
+                        <div class="news-card-image">
+                            <img src="images/hero_banner.jpg" alt="新品發布" class="news-image">
+                            <div class="news-category-badge">新品發布</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-18</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>編輯部</span>
+                            </div>
+                            <h3 class="news-title">智慧家居配件新系列發布，打造未來生活</h3>
+                            <p class="news-excerpt">
+                                烏龍院推出全新智慧家居配件系列，包括智慧燈泡、溫度感應器等多款產品，讓您輕鬆打造智能生活環境。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 5 -->
+                    <article class="news-card" data-category="activity">
+                        <div class="news-card-image">
+                            <img src="images/about_store.jpg" alt="活動公告" class="news-image">
+                            <div class="news-category-badge activity">活動公告</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-15</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>行銷部</span>
+                            </div>
+                            <h3 class="news-title">會員日特別優惠，享受專屬購物福利</h3>
+                            <p class="news-excerpt">
+                                每月第一個週五是烏龍院會員日，會員可享受額外折扣、免運費等專屬福利，歡迎加入會員享受優惠。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- 測試新聞項目 6 -->
+                    <article class="news-card" data-category="tech">
+                        <div class="news-card-image">
+                            <img src="images/about_mission.jpg" alt="技術資訊" class="news-image">
+                            <div class="news-category-badge tech">技術資訊</div>
+                            <div class="news-overlay">
+                                <a href="#" class="btn-read-more">閱讀全文</a>
+                            </div>
+                        </div>
+                        <div class="news-card-body">
+                            <div class="news-meta">
+                                <span class="news-date"><i class="bi bi-calendar3 me-1"></i>2026-03-10</span>
+                                <span class="news-author"><i class="bi bi-person me-1"></i>技術部</span>
+                            </div>
+                            <h3 class="news-title">5G 網路普及，移動科技進入新時代</h3>
+                            <p class="news-excerpt">
+                                隨著 5G 網路的普及，移動科技迎來新的發展機遇。本文探討 5G 技術如何改變我們的日常生活和工作方式。
+                            </p>
+                            <div class="news-footer">
+                                <a href="#" class="read-more-link">
+                                    繼續閱讀 <i class="bi bi-arrow-right ms-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- 分頁 -->
+                <div class="pagination-section">
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination justify-content-center">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1">上一頁</a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">下一頁</a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== NEWSLETTER ===== -->
+        <section class="newsletter-section">
+            <div class="container">
+                <div class="newsletter-content">
+                    <div class="row align-items-center g-4">
+                        <div class="col-lg-6">
+                            <div class="newsletter-icon">
+                                <i class="bi bi-envelope-heart"></i>
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <h2 class="newsletter-title">訂閱我們的電子報</h2>
+                            <p class="newsletter-desc">
+                                第一時間獲取烏龍院最新消息、產品發布和獨家優惠，立即訂閱我們的電子報。
+                            </p>
+                            <form class="newsletter-form">
+                                <div class="input-group">
+                                    <input type="email" class="form-control" placeholder="輸入您的電子郵件">
+                                    <button class="btn btn-subscribe" type="submit">訂閱</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer-tech">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="footer-brand">烏龍院</div>
+                    <p class="footer-desc">
+                        烏龍院是台灣領先的科技產品專賣店，提供最新電腦、手機及周邊配件，
+                        以專業服務與嚴選品質，陪伴您體驗科技生活的每一刻。
+                    </p>
+                    <div>
+                        <a href="#" class="social-icon"><i class="bi bi-facebook"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-line"></i></a>
+                        <a href="#" class="social-icon"><i class="bi bi-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">快速連結</div>
+                    <ul class="footer-links">
+                        <li><a href="index.html">首頁</a></li>
+                        <li><a href="about.html">關於我們</a></li>
+                        <li><a href="news.html">最新消息</a></li>
+                        <li><a href="#">線上購物</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-lg-2">
+                    <div class="footer-heading">產品分類</div>
+                    <ul class="footer-links">
+                        <li><a href="#">筆記型電腦</a></li>
+                        <li><a href="#">桌上型電腦</a></li>
+                        <li><a href="#">智慧型手機</a></li>
+                        <li><a href="#">周邊配件</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4">
+                    <div class="footer-heading">聯絡資訊</div>
+                    <ul class="footer-links">
+                        <li><i class="bi bi-geo-alt me-2" style="color: #00b4d8;"></i>台北市信義區科技路 100 號</li>
+                        <li><i class="bi bi-telephone me-2" style="color: #00b4d8;"></i>(02) 2345-6789</li>
+                        <li><i class="bi bi-envelope me-2" style="color: #00b4d8;"></i>service@wulong.com.tw</li>
+                        <li><i class="bi bi-clock me-2" style="color: #00b4d8;"></i>週一至週六 10:00 - 20:00</li>
+                    </ul>
+                </div>
+            </div>
+            <hr class="footer-divider" />
+            <div class="d-flex flex-wrap justify-content-between align-items-center footer-bottom">
+                <span>© 2025 烏龍院科技. 版權所有</span>
+                <span>
+                    <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none; margin-right: 16px;">隱私政策</a>
+                    <a href="#" style="color: rgba(255,255,255,0.4); text-decoration: none;">使用條款</a>
+                </span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+
+    <!-- 新聞頁面互動腳本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const newsCards = document.querySelectorAll('.news-card');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const filter = this.getAttribute('data-filter');
+
+                    // 更新按鈕狀態
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // 篩選新聞卡片
+                    newsCards.forEach(card => {
+                        if (filter === 'all') {
+                            card.style.display = 'block';
+                        } else {
+                            if (card.getAttribute('data-category') === filter) {
+                                card.style.display = 'block';
+                            } else {
+                                card.style.display = 'none';
+                            }
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

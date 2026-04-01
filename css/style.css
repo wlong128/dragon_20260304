@@ -1,0 +1,298 @@
+/**
+ * 烏龍院科技產品專賣店 - 共用樣式表
+ * 包含所有頁面通用的 CSS 樣式
+ * 版本：1.0.0
+ */
+
+/* ===== CSS VARIABLES ===== */
+:root {
+    --tech-primary: #0d6efd;
+    --tech-dark: #050d1a;
+    --tech-darker: #020810;
+    --tech-blue: #00b4d8;
+    --tech-cyan: #00f5ff;
+    --tech-glow: rgba(0, 180, 216, 0.3);
+}
+
+/* ===== GLOBAL STYLES ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+/* ===== NAVBAR ===== */
+.navbar-tech {
+    background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%);
+    border-bottom: 1px solid rgba(0, 180, 216, 0.3);
+    padding: 12px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 180, 216, 0.2);
+}
+
+.navbar-brand-text {
+    font-size: 1.5rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #00b4d8, #00f5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: 2px;
+}
+
+.navbar-tech .nav-link {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 8px 16px !important;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.navbar-tech .nav-link:hover,
+.navbar-tech .nav-link.active {
+    color: #00f5ff !important;
+    background: rgba(0, 180, 216, 0.1);
+}
+
+.navbar-tech .nav-link.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 2px;
+    background: linear-gradient(90deg, #00b4d8, #00f5ff);
+    border-radius: 2px;
+}
+
+.navbar-toggler {
+    border-color: rgba(0, 180, 216, 0.5) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ===== BUTTONS ===== */
+.btn-tech-primary {
+    background: linear-gradient(135deg, #0d6efd, #00b4d8);
+    border: none;
+    color: #fff;
+    padding: 14px 36px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 180, 216, 0.4);
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-tech-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(0, 180, 216, 0.6);
+    color: #fff;
+}
+
+.btn-tech-outline {
+    background: transparent;
+    border: 1px solid rgba(0, 180, 216, 0.6);
+    color: #00b4d8;
+    padding: 13px 32px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-tech-outline:hover {
+    background: rgba(0, 180, 216, 0.1);
+    border-color: #00f5ff;
+    color: #00f5ff;
+    transform: translateY(-2px);
+}
+
+.btn-add-cart {
+    background: linear-gradient(135deg, #0d6efd, #00b4d8);
+    border: none;
+    color: #fff;
+    padding: 10px 24px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    margin-top: 14px;
+}
+
+.btn-add-cart:hover {
+    box-shadow: 0 6px 20px rgba(0, 180, 216, 0.4);
+    transform: translateY(-1px);
+    color: #fff;
+}
+
+/* ===== SECTION STYLES ===== */
+.section-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #00b4d8;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.section-title {
+    font-size: clamp(1.8rem, 3vw, 2.5rem);
+    font-weight: 800;
+    color: #0a1628;
+    margin-bottom: 16px;
+}
+
+.section-desc {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+/* ===== BREADCRUMB ===== */
+.breadcrumb-section {
+    background: #f0f4ff;
+    padding: 12px 0;
+    border-bottom: 1px solid #e8f0fe;
+}
+
+.breadcrumb-item a {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.breadcrumb-item.active {
+    color: #555;
+}
+
+/* ===== FOOTER ===== */
+.footer-tech {
+    background: linear-gradient(135deg, #050d1a 0%, #0a1628 100%);
+    border-top: 1px solid rgba(0, 180, 216, 0.2);
+    padding: 60px 0 30px;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.footer-brand {
+    font-size: 1.4rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #00b4d8, #00f5ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 12px;
+}
+
+.footer-desc {
+    font-size: 0.9rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.55);
+    margin-bottom: 20px;
+}
+
+.footer-heading {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-links li {
+    margin-bottom: 8px;
+}
+
+.footer-links a {
+    color: rgba(255, 255, 255, 0.55);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #00b4d8;
+}
+
+.footer-divider {
+    border-color: rgba(0, 180, 216, 0.15);
+    margin: 30px 0;
+}
+
+.footer-bottom {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: rgba(0, 180, 216, 0.1);
+    border: 1px solid rgba(0, 180, 216, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1rem;
+    transition: all 0.3s;
+    text-decoration: none;
+    margin-right: 8px;
+}
+
+.social-icon:hover {
+    background: rgba(0, 180, 216, 0.2);
+    color: #00b4d8;
+    border-color: #00b4d8;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar-brand-text {
+        font-size: 1.2rem;
+    }
+}
