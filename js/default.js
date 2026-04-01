@@ -86,6 +86,12 @@ $(function () {
 });
 
 // 分享功能
+function shareFacebook() {
+    const url = encodeURIComponent(window.location.href);
+    const fbUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
+    window.open(fbUrl, "_blank", "width=600,height=400");
+}
+
 function shareLine() {
     const title = document.title;
     const url = window.location.href;

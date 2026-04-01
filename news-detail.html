@@ -372,23 +372,6 @@
             }
         }
     </script>
-    <script>
-    // 分享功能
-    function shareFacebook() {
-        const url = encodeURIComponent(window.location.href);
-        // const url ='https://tw.news.yahoo.com/%E9%A3%9B%E7%89%9B-%E5%9F%94%E5%BF%83%E7%89%A7%E5%A0%B4%E9%83%BD%E8%BC%B8%E5%AE%83-%E5%85%A8%E5%8F%B0%E6%9C%80%E5%BC%B7%E8%BE%B2%E7%89%A7%E5%A0%B4%E5%B9%B4%E5%90%B867%E8%90%AC%E4%BA%BA-%E9%9B%B2%E6%B5%B7%E7%BE%8E%E6%99%AF-%E5%8B%95%E7%89%A9%E8%A6%AA%E4%BA%BA-000000092.html';
-        const fbUrl = "https://www.facebook.com/sharer/sharer.php?u=" + url;
-        window.open(fbUrl, "_blank", "width=600,height=400");
-    }
-
-    function shareLine() {
-        const title = document.getElementById('newsTitle').textContent;
-        const url = window.location.href;
-        const text = encodeURIComponent(title + ' ' + url);
-        const lineUrl = "https://line.me/R/share?text=" + text;
-        window.open(lineUrl, "_blank");
-    }
-    </script>
 </body>
 
 </html>
